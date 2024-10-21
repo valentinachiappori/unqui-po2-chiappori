@@ -1,13 +1,15 @@
 package ar.edu.unq.po2.tp5;
 
-public abstract class Producto {
+public abstract class Producto implements Pagable {
 	
 	protected String name;
 	protected Double precio;
+	protected int stock;
 	
-	public Producto(String name, Double precio) {
+	public Producto(String name, Double precio, int stock) {
 		this.name = name;
 		this.precio = precio;
+		this.stock = stock;
 	}
 
 	public String getName() {
@@ -18,12 +20,23 @@ public abstract class Producto {
 		this.name = name;
 	}
 
-	public Double getPrecio() {
-		return precio;
-	}
-
 	public void setPrecio(Double precio) {
 		this.precio = precio;
+	}
+	
+	public void decrementarStock() {
+		this.stock -= 1;
+	}
+	
+	@Override
+	public double calcularMonto() {
+		return precio;
+	}
+	
+	@Override
+	public void registrarPago() {
+		this.calcularMonto();
+		this.decrementarStock();
 	}
 	
 	

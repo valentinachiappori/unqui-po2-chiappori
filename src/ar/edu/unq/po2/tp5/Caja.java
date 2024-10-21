@@ -1,31 +1,26 @@
 package ar.edu.unq.po2.tp5;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Caja {
 	
-	private MercadoCentral mercado;
-	
-	public Caja(MercadoCentral mercado) {
-		this.mercado = mercado;
-	}
-	
-	public MercadoCentral getMercadoCentral() {
-		return mercado;
+	private List<Pagable> itemsRegistrados;
+
+	public Caja() {
+		this.itemsRegistrados = new ArrayList<Pagable>();
 	}
 
-
-	public void setMercadoCentral(MercadoCentral mercado) {
-		this.mercado = mercado;
-	}
-
-
-	public Double registrarProductos(List<Producto>productos) {
-		Double precioTotal = 0d;
-		for (Producto producto : productos) {
-			precioTotal += producto.getPrecio();
-			this.mercado.decrementarStock(producto);
+	public double cobrar() {
+		double monto = 0;
+		for (Pagable pagable : itemsRegistrados) {
+			monto += pagable.calcularMonto();
 		}
-		return precioTotal;
+		return monto;
+	}
+	
+	public void registrar(Pagable pagable) {
+		itemsRegistrados.add(pagable);
 	}
 }
+
