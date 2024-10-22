@@ -1,5 +1,6 @@
-package ar.edu.unq.po2.tpEnum;
+package ar.edu.unq.po2.tp8;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -9,8 +10,8 @@ public class Club {
 
 	private List<ActividadSemanal> actividades;
 	
-	public Club(List<ActividadSemanal> actividades) {
-        this.actividades = actividades;
+	public Club() {
+        this.actividades = new ArrayList<ActividadSemanal>();
     }
 	
 	public void agregarActividad(ActividadSemanal actividad) {

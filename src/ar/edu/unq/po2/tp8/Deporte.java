@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpEnum;
+package ar.edu.unq.po2.tp8;
 
 public enum Deporte {
 	
