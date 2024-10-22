@@ -38,4 +38,7 @@ public class Club {
 		        .orElse(null);
 	}
 	
+	public String infoTodasLasActividades() {
+		return this.actividades.stream().map(actividad -> actividad.toString()).collect(Collectors.joining("\n"));
+	}
 }

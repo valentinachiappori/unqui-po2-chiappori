@@ -69,4 +69,9 @@ public class ActividadSemanal {
         return (costoPorHora + costoComplejidad) * duracion;
     }
 	
+	@Override
+	public String toString() {
+	    return "Deporte " + this.deporte + ". Dia: " + this.dia + " A LAS: " + this.horaInicio + ". Duración: " + this.duracion + ".";
+	}
+	
 }
