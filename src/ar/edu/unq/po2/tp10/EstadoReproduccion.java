@@ -4,7 +4,7 @@ public class EstadoReproduccion implements EstadoReproductor{
 
 	@Override
 	public void play(ReproductorMP3 reproductor) {
-		System.out.println("Error: La canción ya se está reproduciendo.");
+		throw new IllegalStateException("Error: La canción ya se está reproduciendo.");
 	}
 
 	@Override

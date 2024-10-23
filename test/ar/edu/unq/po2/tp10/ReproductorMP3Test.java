@@ -22,7 +22,39 @@ class ReproductorMP3Test {
 		
 		reproductor.play();
 		
-		assertTrue( reproductor.getEstado() instanceof EstadoReproduccion);
+		assertTrue(reproductor.getEstado() instanceof EstadoReproduccion);
 	}
+	
+	@Test
+	void testPausaReproduciendo() {
+		
+		reproductor.play();
+		reproductor.pause();
+		
+		assertTrue(reproductor.getEstado() instanceof EstadoPausado);
+	}
+	
+	@Test
+	void testStopReproduccion() {
+		
+		reproductor.play();
+		reproductor.stop();
+		
+		assertTrue(reproductor.getEstado() instanceof EstadoSeleccion);
+	}
+	
+	@Test
+    void testPlayWhenAlreadyPlayingThrowsException() {
+        // Primero cambiamos el estado a "reproduciendo"
+        reproductor.play();
 
+        // Ahora intentamos hacer play nuevamente, lo que debería lanzar una excepción
+        IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
+            reproductor.play();
+        });
+
+        // Verificamos el mensaje de error si es relevante
+        assertEquals("Error: La canción ya se está reproduciendo.", exception.getMessage());
+    }
 }
+

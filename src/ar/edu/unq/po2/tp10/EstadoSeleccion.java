@@ -10,12 +10,12 @@ public class EstadoSeleccion implements EstadoReproductor{
 
 	@Override
 	public void pause(ReproductorMP3 reproductor) {
-		 System.out.println("Error: No hay ninguna canción reproduciéndose.");
+		throw new IllegalStateException("Error: No hay ninguna canción reproduciéndose.");
 	}
 
 	@Override
 	public void stop(ReproductorMP3 reproductor) {
-		 System.out.println("Error: No hay ninguna canción reproduciéndose.");
+		throw new IllegalStateException("Error: No hay ninguna canción reproduciéndose.");
 	}
 
 }

@@ -10,7 +10,7 @@ public class EstadoPausado implements EstadoReproductor {
 
 	@Override
 	public void pause(ReproductorMP3 reproductor) {
-		System.out.println("Error: La canción ya está en pausa");
+		throw new IllegalStateException("Error: La canción ya está en pausa");
 	}
 
 	@Override
