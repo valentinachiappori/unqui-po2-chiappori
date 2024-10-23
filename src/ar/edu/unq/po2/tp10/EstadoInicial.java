@@ -8,8 +8,10 @@ public class EstadoInicial implements EstadoJuego {
 			maquina.mostrarMensaje();
 		} else if (maquina.getFichas() == 1) { 
 			maquina.setEstado(new EstadoUnJugador());
+			maquina.iniciarJuego();
 		} else {
 			maquina.setEstado(new EstadoDosJugadores());
+			maquina.iniciarJuego();
 		}
 	}
 
