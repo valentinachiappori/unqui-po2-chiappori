@@ -19,7 +19,10 @@ class ReproductorMP3Test {
 
 	@Test
 	void testReproduce() {
-		assertEquals(new EstadoReproduccion(),  );
+		
+		reproductor.play();
+		
+		assertTrue( reproductor.getEstado() instanceof EstadoReproduccion);
 	}
 
 }
